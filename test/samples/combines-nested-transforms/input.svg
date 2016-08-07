@@ -1,0 +1,5 @@
+<svg>
+	<g transform='scale(2)'>
+		<path d='M0,0 L10,0 L10,10 L0,10Z' transform='translate(10,10)'/>
+	</g>
+</svg>

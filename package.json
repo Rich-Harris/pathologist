@@ -1,0 +1,51 @@
+{
+  "name": "pathologically",
+  "version": "1.0.0",
+  "description": "Flatten SVG document into paths",
+  "main": "dist/pathologist.umd.js",
+  "jsnext:main": "dist/pathologist.es.js",
+  "module": "dist/pathologist.es.js",
+  "bin": {
+    "pathologist": "bin/pathologist"
+  },
+  "scripts": {
+    "test": "mocha",
+    "pretest": "npm run build",
+    "build": "rollup -c && rollup -c rollup.config.cli.js",
+    "dev": "rollup -c -w"
+  },
+  "files": [
+    "bin/pathologist",
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/Rich-Harris/pathologist.git"
+  },
+  "keywords": [
+    "svg",
+    "flatten",
+    "path",
+    "canvas"
+  ],
+  "author": "Rich Harris",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/Rich-Harris/pathologist/issues"
+  },
+  "homepage": "https://gitlab.com/Rich-Harris/pathologist#README",
+  "devDependencies": {
+    "mocha": "^3.0.1",
+    "rollup": "^0.34.5",
+    "rollup-plugin-buble": "^0.12.1",
+    "rollup-plugin-commonjs": "^3.3.1",
+    "rollup-plugin-json": "^2.0.1",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-string": "^2.0.2",
+    "source-map-support": "^0.4.2"
+  },
+  "dependencies": {
+    "svgpath": "^2.1.6"
+  }
+}
