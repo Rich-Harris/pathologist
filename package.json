@@ -1,6 +1,6 @@
 {
   "name": "pathologist",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Flatten SVG document into paths",
   "main": "dist/pathologist.umd.js",
   "jsnext:main": "dist/pathologist.es.js",

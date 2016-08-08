@@ -1,5 +1,9 @@
 # pathologist changelog
 
+## 0.1.4
+
+* Export `paths` array
+
 ## 0.1.3
 
 * `<polygon>` and `<polyline>`
