@@ -3,14 +3,31 @@ function stringifyAttributes ( attributes ) {
 }
 
 export default function stringify ( node, indent ) {
+	if ( typeof node === 'string' ) return node;
+
 	const attributes = stringifyAttributes( node.attributes );
 
 	let str = `${indent}<${node.name}${attributes}`;
 
 	if ( node.children && node.children.length ) {
-		str += `>\n${
-			node.children.map( child => stringify( child, indent + '\t' ) ).join( '\n' )
-		}\n${indent}</${node.name}>`;
+		str += '>';
+		let prefix = '\n';
+
+		let lastChild;
+
+		for ( let child of node.children ) {
+			if ( typeof child === 'string' ) {
+				str += child;
+				prefix = '';
+			} else {
+				str += prefix + stringify( child, indent + '\t' );
+				prefix = '\n';
+			}
+		}
+
+		if ( prefix ) prefix += indent;
+
+		str += `${prefix}</${node.name}>`;
 	} else if ( node.val ) {
 		str += `>${node.val}</${node.name}>`;
 	} else {

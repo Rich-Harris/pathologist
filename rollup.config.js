@@ -6,7 +6,11 @@ export default {
 	entry: 'src/index.js',
 	moduleName: 'pathologist',
 	plugins: [
-		buble(),
+		buble({
+			transforms: {
+				dangerousForOf: true
+			}
+		}),
 		nodeResolve({
 			module: true,
 			main: true
