@@ -20,7 +20,11 @@ function convertPoints ( points ) {
 
 const converters = {
 	ellipse: attributes => {
-		const { cx, cy, rx, ry } = attributes;
+		const cx = attributes.cx || 0;
+		const cy = attributes.cy || 0;
+		const rx = attributes.rx || 0;
+		const ry = attributes.ry || 0;
+
 		const path = cloneExcept( attributes, [ 'cx', 'cy', 'rx', 'ry' ] );
 		path.d = `M${cx - rx},${cy}a${rx},${ry} 0 1,0 ${rx * 2},0a${rx},${ry} 0 1,0 ${rx * -2},0`;
 
@@ -28,8 +32,11 @@ const converters = {
 	},
 
 	circle: attributes => {
-		const { cx, cy, r } = attributes;
-		const path = cloneExcept( attributes, [ 'cx', 'cy', 'rx', 'ry' ] );
+		const cx = attributes.cx || 0;
+		const cy = attributes.cy || 0;
+		const r = attributes.r || 0;
+
+		const path = cloneExcept( attributes, [ 'cx', 'cy', 'r' ] );
 		path.d = `M${cx - r},${cy}a${r},${r} 0 1,0 ${r * 2},0a${r},${r} 0 1,0 ${r * -2},0`;
 
 		return path;
@@ -43,10 +50,10 @@ const converters = {
 	},
 
 	rect: attributes => {
-		const x = +attributes.x;
-		const y = +attributes.y;
-		const width = +attributes.width;
-		const height = +attributes.height;
+		const x = +attributes.x || 0;
+		const y = +attributes.y || 0;
+		const width = +attributes.width || 0;
+		const height = +attributes.height || 0;
 		// const rx = +attributes.rx || 0; // TODO handle...
 		// const ry = +attributes.ry || 0; // TODO handle...
 
