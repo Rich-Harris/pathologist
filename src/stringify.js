@@ -13,8 +13,6 @@ export default function stringify ( node, indent ) {
 		str += '>';
 		let prefix = '\n';
 
-		let lastChild;
-
 		for ( let child of node.children ) {
 			if ( typeof child === 'string' ) {
 				str += child;
