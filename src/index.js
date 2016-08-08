@@ -1,20 +1,18 @@
-import { parse } from 'svg-parser';
+import { parse as parseSvg } from 'svg-parser';
 import walk from './walk.js';
 import stringify from './stringify.js';
 
 class Pathologist {
 	constructor ( source ) {
-		this.source = source;
+		this.source = parseSvg( source );
 
 		this.target = {
-			name: source.name,
-			attributes: Object.assign( {}, source.attributes )
+			name: this.source.name,
+			attributes: Object.assign( {}, this.source.attributes ),
+			children: []
 		};
 
-		this.paths = [];
-		walk( this.source, this.paths, [] );
-
-		this.target.children = this.paths;
+		walk( this.source, this.target.children, [] );
 	}
 
 	toString () {
@@ -22,8 +20,17 @@ class Pathologist {
 	}
 }
 
-export { parse };
-
 export function transform ( source ) {
-	return new Pathologist( parse( source ) ).toString();
+	return new Pathologist( source ).toString();
+}
+
+export function parse ( source ) {
+	const pathologist = new Pathologist( source );
+
+	return {
+		paths: pathologist.target.children.filter( node => node.name === 'path' ).map( node => node.attributes ),
+		toString () {
+			return pathologist.toString();
+		}
+	};
 }
