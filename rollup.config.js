@@ -8,6 +8,7 @@ export default {
 	plugins: [
 		buble(),
 		nodeResolve({
+			module: true,
 			main: true
 		}),
 		commonjs()

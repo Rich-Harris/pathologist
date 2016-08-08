@@ -47,8 +47,8 @@ const converters = {
 		const y = +attributes.y;
 		const width = +attributes.width;
 		const height = +attributes.height;
-		const rx = +attributes.rx || 0; // TODO handle...
-		const ry = +attributes.ry || 0; // TODO handle...
+		// const rx = +attributes.rx || 0; // TODO handle...
+		// const ry = +attributes.ry || 0; // TODO handle...
 
 		const path = cloneExcept( attributes, [ 'x', 'y', 'width', 'height', 'rx', 'ry' ] );
 
@@ -61,7 +61,7 @@ const converters = {
 	// TODO others...
 };
 
-export default function convert ( node, transforms ) {
+export default function convert ( node ) {
 	const converter = converters[ node.name ];
 	if ( converter ) {
 		const attributes = converter( node.attributes );

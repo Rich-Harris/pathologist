@@ -1,6 +1,6 @@
+import { parse } from 'svg-parser';
 import walk from './walk.js';
 import stringify from './stringify.js';
-import parse from './parse.js';
 
 class Pathologist {
 	constructor ( source ) {
