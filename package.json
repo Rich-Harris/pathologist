@@ -49,6 +49,7 @@
     "source-map-support": "^0.4.2"
   },
   "dependencies": {
+    "minimist": "^1.2.0",
     "svg-parser": "^1.0.0",
     "svgpath": "^2.1.6"
   }
