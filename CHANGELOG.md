@@ -1,5 +1,9 @@
 # pathologist changelog
 
+## 0.1.3
+
+* `<polygon>` and `<polyline>`
+
 ## 0.1.2
 
 * Convert `<line>` elements
