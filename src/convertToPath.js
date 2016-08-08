@@ -6,7 +6,7 @@ function cloneExcept ( obj, props ) {
 	return clone;
 }
 
-function convertPoints ( points ) {
+function line ( points ) {
 	let path = '';
 	let prefix = 'M';
 
@@ -44,7 +44,7 @@ const converters = {
 
 	polygon: attributes => {
 		const path = cloneExcept( attributes, 'points' );
-		path.d = convertPoints( attributes.points.trim().split( /[\s,]+/ ) );
+		path.d = line( attributes.points.trim().split( /[\s,]+/ ) );
 
 		return path;
 	},
@@ -61,6 +61,13 @@ const converters = {
 
 		// TODO handle rx and ry
 		path.d = `m${x},${y} ${width},0 0,${height} ${-width},0Z`;
+
+		return path;
+	},
+
+	line: attributes => {
+		const path = cloneExcept( attributes, [ 'x1', 'y1', 'x2', 'y2' ]);
+		path.d = line([ attributes.x1 || 0, attributes.y1 || 0, attributes.x2 || 0, attributes.y2 || 0 ]);
 
 		return path;
 	}
