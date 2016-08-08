@@ -43,6 +43,13 @@ const converters = {
 	},
 
 	polygon: attributes => {
+		const path = converters.polyline( attributes );
+		path.d += 'Z';
+
+		return path;
+	},
+
+	polyline: attributes => {
 		const path = cloneExcept( attributes, 'points' );
 		path.d = line( attributes.points.trim().split( /[\s,]+/ ) );
 
