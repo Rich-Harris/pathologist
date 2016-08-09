@@ -1,5 +1,9 @@
 # pathologist changelog
 
+## 0.1.6
+
+* Fix `<rect>`
+
 ## 0.1.5
 
 * Inherit `<g>` attributes and classes
