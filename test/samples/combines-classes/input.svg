@@ -1,0 +1,7 @@
+<svg>
+	<g class='one'>
+		<g class='one two'>
+			<path class='three' d='M0,0 L10,0 L10,10 L0,10Z'/>
+		</g>
+	</g>
+</svg>

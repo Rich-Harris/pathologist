@@ -12,7 +12,7 @@ class Pathologist {
 			children: []
 		};
 
-		walk( this.source, this.target.children, [] );
+		walk( this.source, this.target.children, [], {} );
 	}
 
 	toString () {

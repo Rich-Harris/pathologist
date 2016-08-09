@@ -67,7 +67,7 @@ const converters = {
 		const path = cloneExcept( attributes, [ 'x', 'y', 'width', 'height', 'rx', 'ry' ] );
 
 		// TODO handle rx and ry
-		path.d = `m${x},${y} ${width},0 0,${height} ${-width},0Z`;
+		path.d = `M${x},${y} ${width},0 0,${height} ${-width},0Z`;
 
 		return path;
 	},

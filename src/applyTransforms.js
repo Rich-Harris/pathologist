@@ -3,12 +3,17 @@ import svgpath from 'svgpath';
 export default function applyTransforms ( node, transforms ) {
 	if ( node.attributes.transform ) {
 		transforms = transforms.concat( node.attributes.transform );
+		delete node.attributes.transform;
 	}
 
-	node.attributes.d = svgpath( node.attributes.d )
-		.transform( transforms.join( ' ' ) )
-		.round( 10 )
-		.toString();
+	const transformString = transforms.join( ' ' );
 
-	delete node.attributes.transform;
+	if ( node.name === 'path' ) {
+		node.attributes.d = svgpath( node.attributes.d )
+			.transform( transformString )
+			.round( 10 )
+			.toString();
+	} else if ( transformString ) {
+		node.attributes.transform = transformString;
+	}
 }
