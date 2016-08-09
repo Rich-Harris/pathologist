@@ -1,5 +1,9 @@
 # pathologist changelog
 
+## 0.1.7
+
+* Add help text and README
+
 ## 0.1.6
 
 * Fix `<rect>`

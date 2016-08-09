@@ -5,6 +5,8 @@ import runPathologist from './runPathologist';
 
 const command = minimist( process.argv.slice( 2 ), {
 	alias: {
+		h: 'help',
+		v: 'version',
 		i: 'input',
 		o: 'output'
 	}
