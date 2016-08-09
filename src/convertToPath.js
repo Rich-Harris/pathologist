@@ -1,10 +1,4 @@
-function cloneExcept ( obj, props ) {
-	let clone = {};
-	Object.keys( obj ).forEach( prop => {
-		if ( !~props.indexOf( prop ) ) clone[ prop ] = obj[ prop ];
-	});
-	return clone;
-}
+import { cloneExcept } from './utils/object.js';
 
 function line ( points ) {
 	let path = '';

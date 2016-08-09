@@ -6,4 +6,12 @@ const assign = Object.assign || function assign ( source, ...targets ) {
 	});
 };
 
-export { assign };
+function cloneExcept ( obj, props ) {
+	let clone = {};
+	Object.keys( obj ).forEach( prop => {
+		if ( !~props.indexOf( prop ) ) clone[ prop ] = obj[ prop ];
+	});
+	return clone;
+}
+
+export { assign, cloneExcept };
