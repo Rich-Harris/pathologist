@@ -1,5 +1,9 @@
 # pathologist changelog
 
+## 0.1.5
+
+* Inherit `<g>` attributes and classes
+
 ## 0.1.4
 
 * Export `paths` array
