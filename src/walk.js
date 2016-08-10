@@ -11,27 +11,28 @@ export default function walk ( node, paths, transforms, classes, attributes ) {
 	if ( node.name === 'svg' ) {
 		const _transforms = transforms.slice();
 		node.children.forEach( child => {
-			walk( child, paths, _transforms, classes, attributes );
+			walk( child, paths, _transforms, assign( {}, classes ), assign( {}, attributes ) );
 		});
 	}
 
 	else if ( node.name === 'g' ) {
-		const _transforms = node.attributes.transform ? transforms.concat( node.attributes.transform ) : transforms;
+		transforms = node.attributes.transform ? transforms.concat( node.attributes.transform ) : transforms;
 
-		const _classes = assign( {}, classes );
 		if ( node.attributes.class ) {
 			node.attributes.class.split( ' ' )
 				.filter( Boolean )
-				.forEach( className => _classes[ className ] = true );
+				.forEach( className => classes[ className ] = true );
 		}
 
-		const _attributes = assign(
-			cloneExcept( attributes, noninheritable ),
-			cloneExcept( node.attributes, noninheritable )
-		);
-
 		node.children.forEach( child => {
-			walk( child, paths, _transforms, _classes, _attributes );
+			const _classes = assign( {}, classes );
+
+			const _attributes = assign(
+				cloneExcept( attributes, noninheritable ),
+				cloneExcept( node.attributes, noninheritable )
+			);
+
+			walk( child, paths, transforms, _classes, _attributes );
 		});
 	}
 
