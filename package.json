@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "minimist": "^1.2.0",
-    "svg-parser": "^1.0.3",
+    "svg-parser": "^1.0.4",
     "svgpath": "^2.1.6"
   }
 }
