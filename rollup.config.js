@@ -17,12 +17,7 @@ export default {
 		}),
 		commonjs()
 	],
-	// globals: {
-	// 	xmldoc: 'xml',
-	// 	svgpath: 'svgpath'
-	// },
 	sourceMap: true,
-	//external: [ 'svgpath', 'xmldoc' ],
 	targets: [
 		{ format: 'es', dest: 'dist/pathologist.es.js' },
 		{ format: 'umd', dest: 'dist/pathologist.umd.js' }

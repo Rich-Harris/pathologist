@@ -1,5 +1,9 @@
 # pathologist changelog
 
+## 0.1.9
+
+* Move bundled dependencies to devDependencies
+
 ## 0.1.8
 
 * Prevent nodes from mutating each others' attributes
