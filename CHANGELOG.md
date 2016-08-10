@@ -1,5 +1,9 @@
 # pathologist changelog
 
+## 0.1.8
+
+* Prevent nodes from mutating each others' attributes
+
 ## 0.1.7
 
 * Add help text and README
